@@ -1,0 +1,346 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire a Full Time Dedicated Virtual Assistant | Exaninsa Replicated</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --exaninsa-blue: #004d71;
+            --exaninsa-light-blue: #00a3e0;
+            --exaninsa-gray: #f8f9fa;
+        }
+        body { font-family: 'Inter', 'Segoe UI', Roboto, sans-serif; color: #333; line-height: 1.6; }
+        .hero { background: linear-gradient(135deg, var(--exaninsa-blue) 0%, #002d42 100%); color: white; padding: 60px 0; }
+        .hero h1 { font-weight: 800; font-size: 2.8rem; letter-spacing: -1px; }
+        .btn-exaninsa { background-color: var(--exaninsa-light-blue); color: white; border-radius: 50px; padding: 10px 25px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; transition: all 0.3s; border: none; }
+        .btn-exaninsa:hover { background-color: white; color: var(--exaninsa-blue); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .section-padding { padding: 60px 0; }
+        .benefit-card { background: white; border-radius: 16px; border: 1px solid rgba(0,0,0,0.05); padding: 25px; height: 100%; transition: all 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        .benefit-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .step-number { width: 50px; height: 50px; background: var(--exaninsa-light-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; font-size: 1.5rem; }
+        .navbar { transition: all 0.3s; }
+        .platform-img { filter: grayscale(100%); opacity: 0.7; transition: all 0.3s; }
+        .platform-img:hover { filter: grayscale(0%); opacity: 1; }
+        footer { background-color: #111; color: #888; padding: 30px 0; font-size: 0.9rem; }
+        
+        /* Consistent Section Heading Styles */
+        h2.section-heading {
+            font-family: 'Inter', 'Segoe UI', sans-serif !important;
+            font-weight: 700 !important;
+            font-size: 2.5rem !important;
+            color: var(--exaninsa-blue) !important;
+            margin-bottom: 2rem !important;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top py-2">
+    <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand m-0" href="/">
+            <img src="{% static 'virtual_assistants/images/logo_final.png' %}" alt="EXANINSA" style="height: 80px; width: auto;">
+        </a>
+        <div class="ms-auto">
+            <a href="{% url 'about_us' %}" class="text-white text-decoration-none fw-bold" style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">About Us</a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="mb-0">Hire a Full Time Dedicated Virtual Assistant</h1>
+                <p class="h4 mt-2 mb-3" style="color: var(--exaninsa-light-blue); font-weight: 700; letter-spacing: 1px;">VIRTUAL INSURANCE SERVICES</p>
+                <p class="lead">Take back your time with dedicated full-time support from one or more Exaninsa assistant.</p>
+                <a href="mailto:David.Johnathaninssol@outlook.com" class="btn btn-exaninsa mt-3">Contact Us</a>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="https://www.prialto.com/hs-fs/hubfs/midsize-hero.png?width=668&height=500&name=midsize-hero.png" class="img-fluid rounded" alt="Virtual Assistant Hero">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container">
+        <h2 class="text-center section-heading">Choose a Fully Dedicated Virtual Assistant When:</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="icon-box">
+                    <img src="https://www.prialto.com/hs-fs/hubfs/prialto_sr/Images/icon-task.png?width=130&height=130&name=icon-task.png" alt="Icon">
+                    <h3>You Need Dedicated, Embedded Support</h3>
+                    <p>Your virtual assistant will integrate directly into your operations, processes, and preferences for maximum impact</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="icon-box">
+                    <img src="https://www.prialto.com/hs-fs/hubfs/icon-bulb.png?width=130&height=130&name=icon-bulb.png" alt="Icon">
+                    <h3>Your Processes are Complex or Proprietary</h3>
+                    <p>You are your dedicated virtual assistant's only priority—empowering them to tackle more complex and technical work</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="icon-box">
+                    <img src="https://www.prialto.com/hs-fs/hubfs/icon-target.png?width=130&height=130&name=icon-target.png" alt="Icon">
+                    <h3>You Want a Single Point of Contact</h3>
+                    <p>A full-time dedicated virtual assistant will be available throughout your business hours to handle internal and external communications</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2 class="section-heading">The Benefits of Managed Full Time Virtual Assistants</h2>
+                <p>With a Exaninsa Fully Dedicated Virtual Assistant, you get the benefits of a full-time hire backed by Exaninsa management, training, and best practices.</p>
+                <ul class="list-unstyled">
+                    <li>✓ Dedicated full-time support in your time zone</li>
+                    <li>✓ Built-in oversight and quality control</li>
+                    <li>✓ Bespoke processes from day 1</li>
+                </ul>
+                <a href="mailto:David.Johnathaninssol@outlook.com" class="btn btn-exaninsa mt-3">Contact Us</a>
+            </div>
+            <div class="col-md-6">
+                <img src="https://www.prialto.com/hubfs/Prialto%20Virtual%20Assistants-2.jpg" class="img-fluid rounded shadow" alt="Exaninsa Team">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-7">
+                <h2 class="section-heading">Outsource Insurance Support to Increase Efficiency, Profitability, and Client Experience</h2>
+                <p class="lead">Exaninsa is trusted by insurance agencies, brokers, and MGAs. Our team seamlessly integrates with your existing workflows to process claims, service policies, and communicate with clients. In fact, our insurance customers report a 70% overhead reduction by switching to an outsourced team.</p>
+            </div>
+            <div class="col-md-5 text-center">
+                <img src="{% static 'virtual_assistants/images/support-hero.png' %}" class="img-fluid rounded shadow" alt="Insurance Support">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-heading">Why Outsourcing Insurance Operations Works</h2>
+            <p class="lead mx-auto mt-4" style="max-width: 900px; color: #666;">Quick communication and processing times are no longer a perk; it's a requirement to be competitive in today's insurance landscape. Our trained insurance virtual assistants help you stay lean, agile, and profitable, helping you:</p>
+        </div>
+        
+        <div class="row g-4 align-items-stretch">
+            <div class="col-lg-8">
+                <div class="row g-4 h-100">
+                    <div class="col-md-4">
+                        <div class="benefit-card text-center p-4 h-100 shadow-sm border-0 d-flex flex-column align-items-center justify-content-center">
+                            <div class="mb-3">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#e67e22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                            </div>
+                            <p class="fw-bold mb-0">Cut costs by up to 70%</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="benefit-card text-center p-4 h-100 shadow-sm border-0 d-flex flex-column align-items-center justify-content-center">
+                            <div class="mb-3">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#e67e22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m16 12-4-4-4 4"></path><path d="M12 16V8"></path></svg>
+                            </div>
+                            <p class="fw-bold mb-0">Handle claims faster and more accurately</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="benefit-card text-center p-4 h-100 shadow-sm border-0 d-flex flex-column align-items-center justify-content-center">
+                            <div class="mb-3">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#e67e22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"></path><path d="m19 9-7 7-7-7"></path></svg>
+                            </div>
+                            <p class="fw-bold mb-0">Scale coverage during busy periods</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="benefit-card text-center p-4 h-100 shadow-sm border-0 d-flex flex-column align-items-center justify-content-center">
+                            <div class="mb-3">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#e67e22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            </div>
+                            <p class="fw-bold mb-0">Stay compliant with secure data handling</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="benefit-card text-center p-4 h-100 shadow-sm border-0 d-flex flex-column align-items-center justify-content-center">
+                            <div class="mb-3">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#e67e22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </div>
+                            <p class="fw-bold mb-0">Focus in-house staff on sales, strategy, and underwriting</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="position-relative overflow-hidden rounded-4 shadow-lg h-100">
+                    <img src="{% static 'virtual_assistants/images/outsourcing-reimagined-new.png' %}" class="w-100 h-100 object-fit-cover" alt="Insurance Outsourcing Reimagined">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-light">
+    <div class="container text-center">
+        <h2 class="section-heading">Insurance Virtual Assistant Roles We Support</h2>
+        <p class="mb-5">Our insurance virtual assistants come pre-trained in the industry tools and workflows your business uses, avoiding the need for lengthy onboarding processes. Here are some of the services Exaninsa offers:</p>
+        
+        <div class="row g-4 text-start">
+            <div class="col-md-4">
+                <div class="benefit-card">
+                    <div class="mb-3"><img src="https://www.prialto.com/hs-fs/hubfs/prialto_sr/Images/icon-task.png?width=130&height=130&name=icon-task.png" style="width: 50px;" alt="Icon"></div>
+                    <h5>Certificate of Insurance & Auto ID cards</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="benefit-card">
+                    <div class="mb-3"><img src="https://www.prialto.com/hs-fs/hubfs/icon-bulb.png?width=130&height=130&name=icon-bulb.png" style="width: 50px;" alt="Icon"></div>
+                    <h5>Acord applications & Policy checking</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="benefit-card">
+                    <div class="mb-3"><img src="https://www.prialto.com/hs-fs/hubfs/icon-target.png?width=130&height=130&name=icon-target.png" style="width: 50px;" alt="Icon"></div>
+                    <h5>DBR, MVR & Loss Runs reports</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="benefit-card">
+                    <div class="mb-3"><img src="https://www.prialto.com/hs-fs/hubfs/prialto_sr/Images/icon-task.png?width=130&height=130&name=icon-task.png" style="width: 50px;" alt="Icon"></div>
+                    <h5>Claims Intake, Adjudication & Follow-Up</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="benefit-card">
+                    <div class="mb-3"><img src="https://www.prialto.com/hs-fs/hubfs/icon-bulb.png?width=130&height=130&name=icon-bulb.png" style="width: 50px;" alt="Icon"></div>
+                    <h5>Client Applications Data Entry</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="benefit-card">
+                    <div class="mb-3"><img src="https://www.prialto.com/hs-fs/hubfs/icon-target.png?width=130&height=130&name=icon-target.png" style="width: 50px;" alt="Icon"></div>
+                    <h5>Quote Preparation & Client Onboarding</h5>
+                </div>
+            </div>
+            <div class="col-md-4 mx-auto">
+                <div class="benefit-card">
+                    <div class="mb-3"><img src="https://www.prialto.com/hs-fs/hubfs/icon-bulb.png" style="width: 50px;" alt="Icon"></div>
+                    <h5>Submissions - Agency quotes, RAR Group Package Captive, Underwriters submissions</h5>
+                </div>
+            </div>
+            <div class="col-md-4 mx-auto">
+                <div class="benefit-card">
+                    <div class="mb-3"><img src="https://www.prialto.com/hs-fs/hubfs/prialto_sr/Images/icon-task.png" style="width: 50px;" alt="Icon"></div>
+                    <h5>Policy Updates, Endorsements & Renewals</h5>
+                </div>
+            </div>
+            <div class="col-md-4 mx-auto">
+                <div class="benefit-card">
+                    <div class="mb-3"><img src="https://www.prialto.com/hs-fs/hubfs/prialto_sr/Images/icon-task.png" style="width: 50px;" alt="Icon"></div>
+                    <h5>Customer Service via Phone, Email & Chat</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-light">
+    <div class="container">
+        <h2 class="text-center section-heading">How It Works</h2>
+        <p class="text-center mb-5">Securing your new insurance virtual assistants can be done in three simple steps:</p>
+        <div class="row g-4">
+            <div class="col-md-4 text-center">
+                <div class="benefit-card">
+                    <div class="step-number">1</div>
+                    <h5 class="fw-bold">Talk to Our Specialist</h5>
+                    <p class="small text-muted mb-0">First, we’ll connect you with one of our insurance outsourcing specialists to analyze your needs.</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="benefit-card">
+                    <div class="step-number">2</div>
+                    <h5 class="fw-bold">Find Your Match</h5>
+                    <p class="small text-muted mb-0">Next, our specialist will find the perfect match for your team, generally within 24 hours.</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="benefit-card">
+                    <div class="step-number">3</div>
+                    <h5 class="fw-bold">Smart Scaling</h5>
+                    <p class="small text-muted mb-0">Our team will work alongside you to onboard, manage, and track performance with full visibility.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center">
+                <img src="https://www.prialto.com/hubfs/Untitled%20design%20(1)-Apr-01-2025-07-44-09-6738-PM.png" class="img-fluid rounded shadow" alt="Insurance Platforms">
+            </div>
+            <div class="col-md-6">
+                <h2 class="section-heading">We Work With Your Insurance Platforms</h2>
+                <p class="lead">Our insurance virtual assistants are pre-trained in Applied Epic, NowCerts, Vertafore, Ezlynx, CSR24, ImageRight, QQ Catalyst, Ez-Agent, TAM, Sagitta, and other AMS/CRM tools common in the insurance industry, eliminating the need for costly and time-consuming in-house training.</p>
+                <a href="#" class="btn btn-exaninsa mt-3">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-dark text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-5">
+                <img src="{% static 'virtual_assistants/images/louis-diez.png' %}" class="img-fluid rounded-4 shadow-lg" alt="Louis Diez - Exaninsa CEO">
+            </div>
+            <div class="col-md-7 ps-md-5">
+                <h2 class="display-5 fw-bold mb-4 section-heading text-white">Leadership & Vision</h2>
+                <p class="lead mb-4">"Our mission is to empower insurance agencies by providing them with the world-class support they need to thrive in a digital-first world."</p>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="p-4 h-100 bg-white bg-opacity-10 rounded-3 border border-white border-opacity-10">
+                            <h4 class="fw-bold mb-1">Louis Diez</h4>
+                            <p class="text-info mb-3">CEO and Founder</p>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2 text-white"><span class="text-info fw-bold">Contact Number:</span></li>
+                                <li class="mb-2"><i class="bi bi-telephone-fill me-2 text-info"></i> <a href="tel:+15169435647" class="text-white fw-bold text-decoration-none bg-info bg-opacity-25 px-2 py-1 rounded">+1 (516) 943-5647</a></li>
+                                <li class="mb-0"><i class="bi bi-geo-alt-fill me-2"></i> 138 Morris Drive East, Meadow, NY 11554</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-4 h-100 bg-white bg-opacity-10 rounded-3 border border-white border-opacity-10">
+                            <h4 class="fw-bold mb-1">Johnathan</h4>
+                            <p class="text-info mb-3">Director of Client Services</p>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2 text-white"><span class="text-info fw-bold">Contact Email:</span></li>
+                                <li class="mb-0"><i class="bi bi-envelope-fill me-2 text-info"></i> <a href="mailto:David.Johnathaninssol@outlook.com" class="text-white fw-bold text-decoration-none bg-info bg-opacity-25 px-2 py-1 rounded">David.Johnathaninssol@outlook.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 Exaninsa Replication Project. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
