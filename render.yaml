@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: exaninsa-web
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn django_project.wsgi --chdir django --bind 0.0.0.0:$PORT
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: django_project.settings
+      - key: RENDER
+        value: "true"
+jobs:
+  - type: job
+    name: migrate-and-collectstatic
+    env: python
+    plan: free
+    command: bash scripts/render_migrate.sh
