@@ -37,6 +37,12 @@ Environment variables to set in Render:
 - `DATABASE_URL`: (if using Render Postgres)
 - `ALLOWED_HOSTS`: optional comma-separated hostnames
 
+Repository secrets for GitHub Actions:
+- `RENDER_API_KEY` — Render API key with permission to create deploys (create a Service Key in Render: Account → API Keys)
+- `RENDER_SERVICE_ID` — the Render service ID for your web service (found in the service URL or settings)
+
+Example: set these in GitHub → Repository → Settings → Secrets → Actions.
+
 Local test commands
 ```bash
 pip install -r requirements.txt

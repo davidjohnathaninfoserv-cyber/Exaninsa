@@ -1,0 +1,56 @@
+name: Run Render Job
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render job run
+        id: trigger
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+          SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
+          JOB_ID: ${{ secrets.RENDER_JOB_ID }}
+        run: |
+          set -euo pipefail
+          if [ -z "${RENDER_API_KEY:-}" ] || [ -z "${SERVICE_ID:-}" ] || [ -z "${JOB_ID:-}" ]; then
+            echo "Missing one of required secrets: RENDER_API_KEY, RENDER_SERVICE_ID, RENDER_JOB_ID"; exit 1
+          fi
+          echo "Triggering job ${JOB_ID} on service ${SERVICE_ID}"
+          RESP=$(curl -sS -X POST "https://api.render.com/v1/services/${SERVICE_ID}/jobs/${JOB_ID}/runs" \
+            -H "Authorization: Bearer ${RENDER_API_KEY}" \
+            -H "Content-Type: application/json" \
+            -d '{}')
+          echo "$RESP"
+          RUN_ID=$(echo "$RESP" | python -c "import sys,json; d=json.load(sys.stdin); print(d.get('id',''))")
+          if [ -z "$RUN_ID" ]; then
+            echo "Failed to create job run: $RESP"; exit 1
+          fi
+          echo "run_id=$RUN_ID" >> $GITHUB_OUTPUT
+
+      - name: Poll Render job run status
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+          SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
+        run: |
+          set -euo pipefail
+          RUN_ID=${{ steps.trigger.outputs.run_id }}
+          if [ -z "$RUN_ID" ]; then
+            echo "No run id available"; exit 1
+          fi
+          echo "Polling job run $RUN_ID"
+          for i in {1..60}; do
+            RESP=$(curl -sS -H "Authorization: Bearer ${RENDER_API_KEY}" "https://api.render.com/v1/services/${SERVICE_ID}/jobs/${JOB_ID}/runs/${RUN_ID}")
+            STATE=$(echo "$RESP" | python -c "import sys,json; print(json.load(sys.stdin).get('state',''))")
+            echo "State: $STATE"
+            if [ "$STATE" = "succeeded" ] || [ "$STATE" = "completed" ]; then
+              echo "Job run succeeded"; exit 0
+            fi
+            if [ "$STATE" = "failed" ] || [ "$STATE" = "canceled" ]; then
+              echo "Job run failed: $RESP"; exit 1
+            fi
+            sleep 10
+          done
+          echo "Timed out waiting for job run"; exit 1

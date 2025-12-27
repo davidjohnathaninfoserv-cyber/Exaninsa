@@ -1,0 +1,56 @@
+name: Trigger Render Deploy
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  trigger-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render deploy via API
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+          RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
+          COMMIT: ${{ github.sha }}
+        id: trigger
+        run: |
+          if [ -z "$RENDER_API_KEY" ] || [ -z "$RENDER_SERVICE_ID" ]; then
+            echo "Missing secrets RENDER_API_KEY or RENDER_SERVICE_ID"; exit 1
+          fi
+          echo "Triggering deploy for service $RENDER_SERVICE_ID (commit $COMMIT)"
+          RESP=$(curl -sS -X POST "https://api.render.com/v1/services/${RENDER_SERVICE_ID}/deploys" \
+            -H "Authorization: Bearer ${RENDER_API_KEY}" \
+            -H "Content-Type: application/json" \
+            -d "{\"clearCache\":false,\"title\":\"Deploy from GitHub Actions: ${COMMIT}\"}")
+          echo "$RESP"
+          DEPLOY_ID=$(echo "$RESP" | python -c "import sys, json; print(json.load(sys.stdin).get('id',''))")
+          if [ -z "$DEPLOY_ID" ]; then
+            echo "Failed to create deploy: $RESP"; exit 1
+          fi
+          echo "deploy_id=$DEPLOY_ID" >> $GITHUB_OUTPUT
+
+      - name: Poll Render deploy status
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+          RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
+        run: |
+          DEPLOY_ID=${{ steps.trigger.outputs.deploy_id }}
+          if [ -z "$DEPLOY_ID" ]; then
+            echo "No deploy id available"; exit 1
+          fi
+          echo "Polling deploy $DEPLOY_ID"
+          for i in {1..30}; do
+            RESP=$(curl -sS -H "Authorization: Bearer ${RENDER_API_KEY}" "https://api.render.com/v1/services/${RENDER_SERVICE_ID}/deploys/${DEPLOY_ID}")
+            STATUS=$(echo "$RESP" | python -c "import sys,json; print(json.load(sys.stdin).get('state',''))")
+            echo "Status: $STATUS"
+            if [ "$STATUS" = "deployed" ]; then
+              echo "Deploy succeeded"; exit 0
+            fi
+            if [ "$STATUS" = "failed" ] || [ "$STATUS" = "canceled" ]; then
+              echo "Deploy failed: $RESP"; exit 1
+            fi
+            sleep 10
+          done
+          echo "Timed out waiting for deploy"; exit 1
